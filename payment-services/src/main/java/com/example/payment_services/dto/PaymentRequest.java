@@ -12,5 +12,5 @@ public class PaymentRequest {
     String orderId;
     BigDecimal amount;
     String idempotencyKey;
-
+    Long userId;
 }

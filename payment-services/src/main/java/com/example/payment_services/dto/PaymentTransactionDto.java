@@ -1,21 +1,19 @@
-package com.example.payment_services.entity;
+package com.example.payment_services.dto;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "payment_transaction")
 @Data
-public class PaymentTransaction {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@AllArgsConstructor
+@NoArgsConstructor
+public class PaymentTransactionDto {
     private String orderId;
     private BigDecimal amount;
     private String currency;
@@ -25,10 +23,6 @@ public class PaymentTransaction {
     private String gatewayOrderId;
     private String idempotencyKey;
     private Long userId;
-    @CreationTimestamp
-    @Column(updatable = false)
     private LocalDateTime createdAt;
-    @UpdateTimestamp
     private LocalDateTime updatedAt;
 }
-
